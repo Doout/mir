@@ -126,7 +126,7 @@ $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin:
 	   mkdir -p $@
 
 uninstall: $(BUILD_DIR)/libmir.$(LIBSUFF) $(EXECUTABLES) | $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin
-	$(RM) $(PREFIX)/include/mir.h $(PREFIX)/include/mir-gen.h $(PREFIX)/include/c2mir.h
+	$(RM) $(PREFIX)/include/mir.h $(PREFIX)/include/mir-gen.h $(PREFIX)/include/c2mir.h (PREFIX)/include/llvm2mir.h
 	$(RM) $(PREFIX)/lib/libmir.$(LIBSUFF)
 	$(RM) $(EXECUTABLES:$(BUILD_DIR)/%=$(PREFIX)/bin/%)
 	-rmdir $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin
