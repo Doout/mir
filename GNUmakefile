@@ -118,7 +118,7 @@ debug: CFLAGS:=$(subst $(COPTFLAGS),$(CDEBFLAGS),$(CFLAGS))
 debug: $(BUILD_DIR)/libmir.$(LIBSUFF) $(EXECUTABLES)
 
 install: $(BUILD_DIR)/libmir.$(LIBSUFF) $(EXECUTABLES) | $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin
-	install -m a+r $(SRC_DIR)/mir.h $(SRC_DIR)/mir-gen.h $(SRC_DIR)/c2mir/c2mir.h $(PREFIX)/include
+	install -m a+r $(SRC_DIR)/mir.h $(SRC_DIR)/mir-gen.h $(SRC_DIR)/c2mir/c2mir.h  $(SRC_DIR)/llvm2mir/llvm2mir.h $(PREFIX)/include
 	install -m a+r $(BUILD_DIR)/libmir.$(LIBSUFF) $(PREFIX)/lib
 	install -m a+rx $(EXECUTABLES) $(PREFIX)/bin
 
@@ -126,7 +126,7 @@ $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin:
 	   mkdir -p $@
 
 uninstall: $(BUILD_DIR)/libmir.$(LIBSUFF) $(EXECUTABLES) | $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin
-	$(RM) $(PREFIX)/include/mir.h $(PREFIX)/include/mir-gen.h $(PREFIX)/include/c2mir.h
+	$(RM) $(PREFIX)/include/mir.h $(PREFIX)/include/mir-gen.h $(PREFIX)/include/c2mir.h (PREFIX)/include/llvm2mir.h
 	$(RM) $(PREFIX)/lib/libmir.$(LIBSUFF)
 	$(RM) $(EXECUTABLES:$(BUILD_DIR)/%=$(PREFIX)/bin/%)
 	-rmdir $(PREFIX)/include $(PREFIX)/lib $(PREFIX)/bin
