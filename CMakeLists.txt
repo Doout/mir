@@ -40,7 +40,7 @@ option(BUILD_TESTING "" ON)
 include(CTest)
 
 # ------------------ LIBMIR -----------------------
-add_library(mir STATIC mir.c mir-gen.c c2mir/c2mir.c mir.h mir-gen.h c2mir/c2mir.h)
+add_library(mir STATIC mir.c mir-gen.c c2mir/c2mir.c mir.h mir-gen.h c2mir/c2mir.h llvm2mir/llvm2mir.h llvm2mir/llvm2mir.c )
 target_include_directories(mir PRIVATE ${PROJECT_SOURCE_DIR})
 if(Threads_FOUND)
   target_compile_definitions(mir PUBLIC "MIR_PARALLEL_GEN")
